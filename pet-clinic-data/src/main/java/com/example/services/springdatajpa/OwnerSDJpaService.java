@@ -38,9 +38,9 @@ public class OwnerSDJpaService implements OwnerService
     }
 
     @Override
-    public Owner findById(Long aLong)
+    public Owner findById(Long id)
     {
-        return ownerRepository.findById(aLong).orElse(null);
+        return ownerRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -56,9 +56,9 @@ public class OwnerSDJpaService implements OwnerService
     }
 
     @Override
-    public void deleteById(Long aLong)
+    public void deleteById(Long id)
     {
-        ownerRepository.deleteById(aLong);
+        ownerRepository.deleteById(id);
     }
 
     @Override
