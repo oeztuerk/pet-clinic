@@ -71,6 +71,7 @@ public class Pet extends BaseEntity
         this.birthDate = birthDate;
     }
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     public Set<Visit> getVisits()
     {
         return visits;

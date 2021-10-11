@@ -51,6 +51,7 @@ public class Owner extends Person
         this.telephone = telephone;
     }
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     public Set<Pet> getPets()
     {
         return pets;
