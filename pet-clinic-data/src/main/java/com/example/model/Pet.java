@@ -1,5 +1,8 @@
 package com.example.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +15,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@EqualsAndHashCode(exclude = {"owner"})
+@Data
 @Table(name = "pets")
 public class Pet extends BaseEntity
 {
@@ -28,26 +33,6 @@ public class Pet extends BaseEntity
 
     private Set<Visit> visits = new HashSet<>();
 
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public PetType getPetType()
-    {
-        return petType;
-    }
-
-    public void setPetType(PetType petType)
-    {
-        this.petType = petType;
-    }
-
     @ManyToOne
     @JoinColumn(name = "owner_id")
     public Owner getOwner()
@@ -55,29 +40,9 @@ public class Pet extends BaseEntity
         return owner;
     }
 
-    public void setOwner(Owner owner)
-    {
-        this.owner = owner;
-    }
-
-    public LocalDate getBirthDate()
-    {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate)
-    {
-        this.birthDate = birthDate;
-    }
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     public Set<Visit> getVisits()
     {
         return visits;
-    }
-
-    public void setVisits(Set<Visit> visits)
-    {
-        this.visits = visits;
     }
 }
