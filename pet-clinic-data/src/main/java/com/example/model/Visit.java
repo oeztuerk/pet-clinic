@@ -15,8 +15,7 @@ public class Visit extends  BaseEntity
     private LocalDate date;
     @Column(name = "description")
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "pet_id")
+
     private Pet pet;
 
     public LocalDate getDate()
@@ -39,6 +38,8 @@ public class Visit extends  BaseEntity
         this.description = description;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
     public Pet getPet()
     {
         return pet;

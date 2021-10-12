@@ -104,8 +104,8 @@ public class DataLoader implements CommandLineRunner
         catVisit.setPet(fionasPet);
         catVisit.setDate(LocalDate.now());
         catVisit.setDescription("Sneezy Kitty");
-
         visitService.save(catVisit);
+
         System.out.println("Loaded Owners...");
 
         Vet vet1 = new Vet();
@@ -120,6 +120,12 @@ public class DataLoader implements CommandLineRunner
         vet2.setLastName("Exa");
         vet2.getSpecialities().add(saveSurgery);
         vetService.save(vet2);
+
+        Vet vet3 = new Vet();
+        vet3.setFirstName("Bro");
+        vet3.setLastName("Go");
+        vet3.getSpecialities().add(saveDentistry);
+        vetService.save(vet3);
 
         System.out.println("Loaded Vets...");
     }
